@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CardComponent from './components/cartes-cours';
+import Header from './components/header';
+import Functionality from './components/fonctionnalities';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+
+        <div className="content-container">
+          <Routes>
+          <Route path="/cours-collectifs" element={<CardComponent />} />
+            {/* Ajoutez vos autres routes ici */}
+          </Routes>
+
+          <Functionality/>
+        </div>
+
+      
+      </div>
+    </Router>
   );
 }
 
