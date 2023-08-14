@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,12 +6,14 @@ function CourseDetails() {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
   const [clientNumber, setClientNumber] = useState('');
+  const [isReservationSuccess, setIsReservationSuccess] = useState(false);
+  const [reservationError, setReservationError] = useState('');
 
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
         const response = await axios.get(`http://localhost:1337/api/cours-collectifs/${id}`);
-        setCourse(response.data);
+        setCourse(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -20,30 +22,34 @@ function CourseDetails() {
     fetchCourseDetails();
   }, [id]);
 
-  if (!course) {
-    return <div>Loading...</div>;
-  }
-
   const handleReservation = async () => {
-    // Vérifier si le numéro de client existe dans la base de données
-    const isClientValid = await checkClientValidity(clientNumber);
-
-    if (isClientValid) {
-      // Effectuer une requête POST pour enregistrer la réservation
+    try {
       const response = await axios.post('http://localhost:1337/api/reservation', {
         courseId: id,
         clientNumber: clientNumber,
       });
 
-      // Traiter la réponse de la réservation
+      // Vérifiez la réponse de l'API pour la réservation
+      if (response.data.message === 'Réservation effectuée avec succès') {
+        setIsReservationSuccess(true);
+        setReservationError('');
+      } else {
+        setIsReservationSuccess(false);
+        setReservationError('Une erreur est survenue lors de la réservation.');
+      }
 
-      // Réinitialiser le numéro de client
+      // Réinitialisez le numéro de client
       setClientNumber('');
-    } else {
-      // Gérer le cas où le numéro de client est invalide
-      console.log("Numéro de client invalide");
+    } catch (error) {
+      console.log(error);
+      setIsReservationSuccess(false);
+      setReservationError('Une erreur est survenue lors de la réservation.');
     }
   };
+
+  if (!course) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -58,7 +64,10 @@ function CourseDetails() {
         placeholder="Numéro de client"
       />
 
-      <button onClick={handleReservation}>Réserver</button>
+      <button onClick={handleReservation}>Réserver ce cours</button>
+
+      {isReservationSuccess && <p>Réservation effectuée avec succès !</p>}
+      {reservationError && <p style={{ color: 'red' }}>{reservationError}</p>}
     </div>
   );
 }

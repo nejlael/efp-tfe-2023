@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const CardComponent = () => {
   const [cours, setCours] = useState([]);
@@ -18,9 +20,9 @@ const CardComponent = () => {
     <div>
       {cours.map(cour => (
         <div key={cour.id} className="card">
+          <Link to={`/cours-collectifs/${cour.id}`}>
           <h2>{cour.attributes.Titre}</h2>
-          <p>{cour.attributes.Description}</p>
-          <p>{cour.attributes.Horaire}</p>
+        </Link>
         </div>
       ))}
     </div>
