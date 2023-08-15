@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-logo">
-        <img src="/path/to/your/logo.png" alt="Logo" />
+        <img src="" alt="Logo" />
       </div>
       <h1 className="header-title">
         Boost Your{' '}
