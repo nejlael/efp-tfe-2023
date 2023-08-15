@@ -7,6 +7,8 @@ import ProgramForm from './components/programForm';
 import InscriptionForm from './components/inscriptionForm';
 import CallToAction from './components/callToAction';
 import CourseDetails from './components/courseDetails';
+import Footer from './components/footer';
+import './App.css';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -45,6 +47,7 @@ function App() {
             {/* Autres routes */}
           </Routes>
         </div>
+        <Footer/>
       </div>
     </Router>
   );

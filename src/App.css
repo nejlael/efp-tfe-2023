@@ -1,0 +1,114 @@
+*{
+    padding: 0px;
+}
+
+body{
+    margin: 0 auto;
+}
+
+
+
+.header {
+    height: 30vh;
+    background-color: black;
+    position: relative;
+    color: white;
+    overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas le header */
+  }
+  
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(''); /* Chemin de votre image de fond */
+    background-size: cover;
+    opacity: 0.5; /* Opacité réduite */
+    z-index: -1; /* Mettez l'image de fond en arrière-plan */
+  }
+  
+  .header-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .header-logo img {
+    max-width: 100px;
+  }
+  
+  .header-title {
+    font-size: 36px;
+    margin: 0 auto;
+    position: absolute;
+    top: 40%;
+  }
+  
+  .header-title span {
+    color: rgb(124, 49, 61);
+  }
+
+  .colored-text {
+    color: fuchsia;
+  }
+  
+/* _____________________________________________________________________________ */
+
+.footer {
+    background-color: #800020; /* Couleur bordeaux */
+    color: white;
+    text-align: center;
+  }
+  
+  .footer-logo img {
+    max-width: 100px;
+  }
+  
+  .footer-info {
+    margin-top: 1em; /* Espacement entre les informations */
+  }
+  
+  .footer-info p {
+    margin: 0; /* Réinitialiser les marges par défaut */
+  }
+  
+/* _____________________________________________________________________________ */
+
+.content-container {
+    position: relative;
+    top: -2em;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: #800020; /* Couleur bordeaux */
+    border-radius: 10px 10px 0 0; /* Bords arrondis seulement en haut */
+    z-index: 2; /* Ajustez la valeur du z-index si nécessaire */
+  }
+
+  /* _____________________________________________________________________________ */
+
+  .call-to-action {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Pour afficher en premier plan */
+    background-color: #ff00ff; /* Rose fushia */
+    color: white; /* Texte en blanc */
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
+  
+  .call-to-action a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Si vous souhaitez un léger effet d'ombre */
+  .call-to-action {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  
