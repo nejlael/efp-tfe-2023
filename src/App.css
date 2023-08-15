@@ -4,19 +4,23 @@
 
 body{
     margin: 0 auto;
+    overflow-x: hidden;
 }
+body::-webkit-scrollbar {
+    width: 0; /* Masque la largeur de la barre de défilement */
+  }
 a{
     text-decoration: none;
     color: white;
 }
 
-
+/*---------------------------------------*/
 
 .header {
     height: 30vh;
     position: relative;
     color: white;
-    overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas le header */
+    overflow: hidden; 
   }
   
   .header::before {
@@ -59,6 +63,9 @@ a{
     background-color: #800020; /* Couleur bordeaux */
     color: white;
     text-align: center;
+    margin: 0px;
+    padding-bottom: 20px;
+    padding-top: 20px;
   }
   
   .footer-logo img {
@@ -66,11 +73,11 @@ a{
   }
   
   .footer-info {
-    margin-top: 1em; /* Espacement entre les informations */
+    margin-top: 1em; 
   }
   
   .footer-info p {
-    margin: 0; /* Réinitialiser les marges par défaut */
+    margin: 0;
   }
   
 /* _____________________________________________________________________________ */
@@ -262,10 +269,9 @@ a{
 
 .coming-soon-container {
     text-align: center;
-    width: 100%;
+    width: 50vh;
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
@@ -276,11 +282,11 @@ a{
   }
   
   .coming-soon-container p {
-    margin: 10px 0;
+    margin: 10px;
   }
   
   input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     font-size: medium;
     border: 1px solid #efefef;
@@ -291,6 +297,7 @@ a{
   
   .submit-button {
     padding: 10px 15px;
+    margin: 20px;
     background-color: #800020;
     color: #ffffff;
     border: none;

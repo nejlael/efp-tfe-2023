@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
+import ComingSoon from './comingSoon';
 
 function Functionality() {
 
@@ -31,7 +32,7 @@ function Functionality() {
 
         <div className="card">
             <img src="" alt="coachs"></img>
-          <Link to="/comming-soon">
+          <Link to="/coming-soon">
             <h3>Coachs Personnels</h3>
           </Link>
         </div>

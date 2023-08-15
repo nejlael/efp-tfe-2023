@@ -20,34 +20,34 @@ function App() {
         <Header />
 
         <div className="content-container">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                showForm ? (
-                  <ProgramForm />
-                ) : (
-                  <>
-                    <CallToAction />
-                    <Functionality />
-                  </>
-                )
-              }
-            />
-            <Route path="/cours-collectifs" element={<CardComponent />} />
-            <Route path="/cours-collectifs/:id" element={<CourseDetails />} />
-            <Route path="/inscriptionForm" element={<InscriptionForm />} />
-            <Route path="/coming-soon" component={ComingSoon} />
-            <Route
-              path="/programme-fitness"
-              element={
-                <div>
-                  <ProgramForm />
-                </div>
-              }
-            />
-            {/* Autres routes */}
-          </Routes>
+        <Routes>
+  <Route
+    path="/"
+    element={
+      showForm ? (
+        <ProgramForm />
+      ) : (
+        <>
+          <CallToAction />
+          <Functionality />
+        </>
+      )
+    }
+  />
+  <Route path="/cours-collectifs" element={<CardComponent />} />
+  <Route path="/cours-collectifs/:id" element={<CourseDetails />} />
+  <Route path="/inscriptionForm" element={<InscriptionForm />} />
+  <Route path="/coming-soon" element={<ComingSoon />} /> {/* Correction ici */}
+  <Route
+    path="/programme-fitness"
+    element={
+      <div>
+        <ProgramForm />
+      </div>
+    }
+  />
+  {/* Autres routes */}
+</Routes>
         </div>
         <Footer/>
       </div>
