@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { FaArrowLeft, FaArrowRight, FaCheck } from 'react-icons/fa';
 import { generateProgramText } from '../utils/programUtils';
+import '../App.css';
 
 function ProgramForm() {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -53,16 +55,27 @@ function ProgramForm() {
   };
 
   return (
-    <div>
+    <div className="program-form">
       {questionIndex < questions.length ? (
         <div>
           <h2>Formulaire de Programme sur Mesure</h2>
-          <p>{`Question ${questionIndex + 1} sur ${questions.length}`}</p>
           <label htmlFor="answer">{questions[questionIndex]}</label>
           <input
             type="text"
             id="answer"
-            value={questionIndex === 0 ? name : questionIndex === 1 ? age : questionIndex === 2 ? weight : questionIndex === 3 ? height : questionIndex === 4 ? goal : experience}
+            value={
+              questionIndex === 0
+                ? name
+                : questionIndex === 1
+                ? age
+                : questionIndex === 2
+                ? weight
+                : questionIndex === 3
+                ? height
+                : questionIndex === 4
+                ? goal
+                : experience
+            }
             onChange={(e) => {
               if (questionIndex === 0) setName(e.target.value);
               else if (questionIndex === 1) setAge(e.target.value);
@@ -72,14 +85,30 @@ function ProgramForm() {
               else if (questionIndex === 5) setExperience(e.target.value);
             }}
           />
-          {questionIndex > 0 && (
-            <button onClick={handlePrevious}>Précédent</button>
-          )}
-          {questionIndex === questions.length - 1 ? (
-            <button onClick={handleSubmit}>Envoyer</button>
-          ) : (
-            <button onClick={handleNext}>Suivant</button>
-          )}
+          <div className="button-container">
+            {questionIndex > 0 && (
+              <button className="prev-button" onClick={handlePrevious}>
+                <FaArrowLeft />
+              </button>
+            )}
+            {questionIndex === questions.length - 1 ? (
+              <button className="submit-button" onClick={handleSubmit}>
+                Envoyer <FaCheck />
+              </button>
+            ) : (
+              <button className="next-button" onClick={handleNext}>
+                Suivant <FaArrowRight />
+              </button>
+            )}
+          </div>
+          <div className="progress-bar">
+            {questions.map((_, index) => (
+              <div
+                key={index}
+                className={`progress-dot ${index <= questionIndex ? 'filled' : ''}`}
+              ></div>
+            ))}
+          </div>
         </div>
       ) : (
         <div>

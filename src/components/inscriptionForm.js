@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { FaArrowLeft, FaArrowRight, FaCheck } from 'react-icons/fa';
 import axios from 'axios';
+import '../App.css';
 
 const InscriptionForm = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -58,11 +60,10 @@ const InscriptionForm = () => {
   };
 
   return (
-    <div>
+    <div className="program-form">
       {questionIndex < questions.length ? (
         <div>
           <h2>Inscription</h2>
-          <p>{`Question ${questionIndex + 1} sur ${questions.length}`}</p>
           <label htmlFor="answer">{questions[questionIndex]}</label>
           <input
             type="text"
@@ -70,14 +71,30 @@ const InscriptionForm = () => {
             value={answers[questionIndex] || ''}
             onChange={handleAnswerChange}
           />
-          {questionIndex > 0 && (
-            <button onClick={handlePrevious}>Précédent</button>
-          )}
-          {questionIndex === questions.length - 1 ? (
-            <button onClick={handleSubmit}>Valider mon inscription</button>
-          ) : (
-            <button onClick={handleNext}>Suivant</button>
-          )}
+          <div className="button-container">
+            {questionIndex > 0 && (
+              <button className="prev-button" onClick={handlePrevious}>
+                <FaArrowLeft />
+              </button>
+            )}
+            {questionIndex === questions.length - 1 ? (
+              <button className="submit-button" onClick={handleSubmit}>
+                Valider mon inscription <FaCheck />
+              </button>
+            ) : (
+              <button className="next-button" onClick={handleNext}>
+                Suivant <FaArrowRight />
+              </button>
+            )}
+          </div>
+          <div className="progress-bar">
+            {questions.map((_, index) => (
+              <div
+                key={index}
+                className={`progress-dot ${index <= questionIndex ? 'filled' : ''}`}
+              ></div>
+            ))}
+          </div>
         </div>
       ) : (
         <div>

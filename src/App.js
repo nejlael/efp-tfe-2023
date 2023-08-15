@@ -9,6 +9,7 @@ import CallToAction from './components/callToAction';
 import CourseDetails from './components/courseDetails';
 import Footer from './components/footer';
 import './App.css';
+import ComingSoon from './components/comingSoon';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -36,6 +37,7 @@ function App() {
             <Route path="/cours-collectifs" element={<CardComponent />} />
             <Route path="/cours-collectifs/:id" element={<CourseDetails />} />
             <Route path="/inscriptionForm" element={<InscriptionForm />} />
+            <Route path="/coming-soon" component={ComingSoon} />
             <Route
               path="/programme-fitness"
               element={

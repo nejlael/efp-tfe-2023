@@ -9,7 +9,7 @@ function Functionality() {
       <div className="card-container">
         <div className="card">
           <Link to="/cours-collectifs">
-          <img src="" alt="coachs"></img>
+          <img src="../../public/img/cours.png" alt="coachs"></img>
             <h3>Cours Collectifs</h3>
           </Link>
         </div>
@@ -23,7 +23,7 @@ function Functionality() {
 
 
         <div className="card">
-          <Link to="/menu-sur-mesure">
+          <Link to="/coming-soon">
           <img src="" alt="coachs"></img>
             <h3>Menu sur Mesure</h3>
           </Link>
@@ -31,7 +31,7 @@ function Functionality() {
 
         <div className="card">
             <img src="" alt="coachs"></img>
-          <Link to="/coachs-personnels">
+          <Link to="/comming-soon">
             <h3>Coachs Personnels</h3>
           </Link>
         </div>
