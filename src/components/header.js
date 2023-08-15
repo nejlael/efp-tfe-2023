@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import de Link
+import { Link } from 'react-router-dom';
+import logoBlanc from '../img/logo_blanc.png';
 
 
 const Header = () => {
@@ -24,7 +25,7 @@ const Header = () => {
       {/* Utilisation de Link pour le logo */}
       <Link to="/">
         <div className="header-logo">
-          <img src="../../public/img/headerimg.jpg'" alt="Logo" />
+          <img src={logoBlanc} alt="Logo" />
         </div>
       </Link>
       <h1 className="header-title">
