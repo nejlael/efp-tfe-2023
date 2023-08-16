@@ -103,7 +103,7 @@ a{
   .call-to-action {
     position: absolute;
     text-transform: uppercase;
-    font-size: 1.3em;
+    font-size: 1.2em;
     top: -2px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -137,9 +137,10 @@ a{
   }
   
   .card {
+    font-size: 1em;
     flex: 0 0 calc(50% - 20px);
     text-transform: uppercase;
-    height: 200px;
+    height: 180px;
     background-color: black;
     border-radius: 40px;
     position: relative;
@@ -203,6 +204,7 @@ a{
         background-color: #91004D;
       }
       .program-form {
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -285,7 +287,6 @@ a{
 
 .coming-soon-container {
     text-align: center;
-    width: 50vh;
     max-width: 400px;
     margin: 0 auto;
     background-color: #ffffff;
@@ -321,3 +322,52 @@ a{
     cursor: pointer;
   }
   
+
+  /* _____________________________________________________________________________ */
+
+  .course-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .course-details {
+    text-align: center;
+  }
+  
+  .course-details-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .course-details-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  
+  .course-details-container p {
+    margin-bottom: 20px;
+  }
+  
+  .course-details-container button {
+    padding: 10px 15px;
+    margin: 20px;
+    background-color: #91004D;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* _____________________________________________________________________________ */
+
+
+.intituleCours{
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+}

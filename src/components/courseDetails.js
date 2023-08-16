@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import '../App.css';
 
 function CourseDetails() {
   const { id } = useParams();
@@ -52,8 +53,9 @@ function CourseDetails() {
   }
 
   return (
-    <div>
+    <div className="course-details-container">
       <h2>{course.attributes.Titre}</h2>
+      <img src={`http://localhost:1337/uploads/crossfit_2f76774745.avif`} alt={course.attributes.Titre} />
       <p>{course.attributes.Description}</p>
       <p>Horaire : {course.attributes.Horaire}</p>
 
